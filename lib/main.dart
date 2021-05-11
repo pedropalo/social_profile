@@ -134,290 +134,297 @@ class _MyHomePageState extends State<MyHomePage> {
     }
 
     return Scaffold(
-      bottomNavigationBar: _bottomNavigation(),
       body: Container(
         color: AppThemeData.to.colors.primary,
         child: SafeArea(
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height - (MediaQuery.of(context).padding.top + MediaQuery.of(context).padding.bottom),
-            child: SingleChildScrollView(
-              child: Column(
-                children: [
-                  // Topo
-                  Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Container(
-                          decoration: BoxDecoration(
-                            color: AppThemeData.to.colors.dark,
-                            borderRadius: BorderRadius.circular(32)
-                          ),
-                          width: 32,
-                          height: 32,
-                        ),
-
-                        Text(
-                          "INSTABAE",
-                          style: TextStyle(
-                            color: AppThemeData.to.colors.dark,
-                          ),
-                        ),
-
-                        Container(
-                          width: 32,
-                          height: 32,
-                          child: Icon(
-                            Icons.menu,
-                            color: AppThemeData.to.colors.dark,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  // Meio
-                  Container(
-                    height: 800,
-                    child: Stack(
-                      children: [
-                        Positioned(
-                          top: 48,
-                          child: 
-                            Container(
-                              width: MediaQuery.of(context).size.width,
-                              height: 2000,
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                image: DecorationImage(
-                                  image: NetworkImage("https://images.unsplash.com/photo-1489278353717-f64c6ee8a4d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
-                                ),
-                                borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(32),
-                                  topRight: Radius.circular(32)
-                                )
-                              ),
-                              child: Column(
-                                children: [
-                                  Container(
-                                    padding: EdgeInsets.only(top: 16),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        Container(
-                                          width: MediaQuery.of(context).size.width / 2,
-                                          child: Column(
-                                            children: [
-                                              Text(
-                                                "1.152",
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  color: AppThemeData.to.colors.dark,
-                                                ),
-                                              ),
-                                              Container(height: 8),
-                                              Text(
-                                                "Followers",
-                                                style: TextStyle(
-                                                  color: AppThemeData.to.colors.dark,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        Container(
-                                          width: MediaQuery.of(context).size.width / 2,
-                                          child: Column(
-                                            children: [
-                                              Text(
-                                                "285",
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,                            
-                                                  color: AppThemeData.to.colors.dark,
-                                                ),
-                                              ),
-                                              Container(height: 8),
-                                              Text(
-                                                "Following",
-                                                style: TextStyle(
-                                                  color: AppThemeData.to.colors.dark,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-
-                                  Container(height: 32),
-
-                                  Text(
-                                    "Juliete Makarov"
-                                  ),
-
-                                  Container(height: 8),
-
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        "22 y.o | Pro Model",
-                                        style: TextStyle(
-                                          color: AppThemeData.to.colors.dark,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-
-                                  Container(height: 8),
-
-                                  Container(
-                                    width: MediaQuery.of(context).size.width * 0.75,
-                                    margin: EdgeInsets.only(bottom: 12),
-                                    padding: const EdgeInsets.symmetric(vertical: 12),
-                                    decoration: BoxDecoration(
-                                      color: AppThemeData.to.colors.primary,
-                                      borderRadius: BorderRadius.circular(24)
-                                    ),
-                                    alignment: Alignment.center,
-                                    child: Text(
-                                      "Follow",
-                                      style: TextStyle(
-                                        color: AppThemeData.to.colors.dark,
-                                        fontWeight: FontWeight.bold
-                                      ),
-                                    ),
-                                  ),
-
-                                  // Abas
-                                  Container(
-                                    color: AppThemeData.to.colors.primary,
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Container(
-                                          width: MediaQuery.of(context).size.width / 2 - 8,
-                                          height: 48,
-                                          alignment: Alignment.center,
-                                          decoration: BoxDecoration(
-                                            color: Colors.white,
-                                            boxShadow: [
-                                              BoxShadow(
-                                                blurRadius: 4.0,
-                                                color: Colors.black.withOpacity(0.24)
-
-                                              )
-                                            ],
-                                            borderRadius: BorderRadius.only(
-                                              topRight: Radius.circular(32)
-                                            )
-                                          ),
-                                          child:
-                                            Text(
-                                              "Photos",
-                                              style: TextStyle(
-                                                fontWeight: FontWeight.bold,
-                                                color: AppThemeData.to.colors.dark
-                                              ),
-                                            ),
-                                        ),
-
-                                        Container(
-                                          color: Colors.white,
-                                          child: Container(
-                                            width: MediaQuery.of(context).size.width / 2 - 8,
-                                            height: 48,
-                                            alignment: Alignment.center,
-                                            decoration: BoxDecoration(
-                                              color: AppThemeData.to.colors.primary,
-                                              borderRadius: BorderRadius.only(
-                                                topRight: Radius.circular(32)
-                                              ),
-                                            ),
-                                            child: 
-                                              Text(
-                                                "Videos",
-                                                style: TextStyle(
-                                                  fontWeight: FontWeight.bold,
-                                                  color: AppThemeData.to.colors.dark
-                                                ),
-                                              ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-
-                                  Container(
-                                    color: Colors.white,
-                                    height: 20,
-                                    width: MediaQuery.of(context).size.width,
-                                  ),
-
-                                  Stack(
-                                    children: [
-                                      Container(
-                                        width: MediaQuery.of(context).size.width,
-                                        height: 600,
-                                        child: 
-                                          GridView.count(
-                                            crossAxisCount: 3,
-                                            mainAxisSpacing: 8,
-                                            crossAxisSpacing: 8,
-                                            
-                                            children: [
-                                              _imagenContainer(),
-                                              _imagenContainer(),
-                                              _imagenContainer(),
-                                              _imagenContainer(),
-                                              _imagenContainer(),
-                                              _imagenContainer(),
-                                              _imagenContainer(),
-                                              _imagenContainer(),
-                                              _imagenContainer(),
-                                              _imagenContainer(),
-                                              _imagenContainer(),
-                                              _imagenContainer(),
-                                              _imagenContainer(),
-                                            ],
-                                          )
-                                      ),
-                                    ],
-                                  )
-
-
-                                  
-                                ],
-                              ),
-                            )
-                        ),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
+          child: Stack(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height - (MediaQuery.of(context).padding.top + MediaQuery.of(context).padding.bottom),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      // Topo
+                      Padding(
+                        padding: const EdgeInsets.all(16),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Container(
                               decoration: BoxDecoration(
                                 color: AppThemeData.to.colors.dark,
-                                borderRadius: BorderRadius.circular(96)
+                                borderRadius: BorderRadius.circular(32)
                               ),
-                              width: 96,
-                              height: 96,
+                              width: 32,
+                              height: 32,
+                            ),
+
+                            Text(
+                              "INSTABAE",
+                              style: TextStyle(
+                                color: AppThemeData.to.colors.dark,
+                              ),
+                            ),
+
+                            Container(
+                              width: 32,
+                              height: 32,
+                              child: Icon(
+                                Icons.menu,
+                                color: AppThemeData.to.colors.dark,
+                              ),
                             ),
                           ],
                         ),
-                      ],
-                    ),
+                      ),
+
+                      // Meio
+                      Container(
+                        height: 800,
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              top: 48,
+                              child: 
+                                Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  height: 2000,
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    image: DecorationImage(
+                                      image: NetworkImage("https://images.unsplash.com/photo-1489278353717-f64c6ee8a4d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
+                                    ),
+                                    borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(32),
+                                      topRight: Radius.circular(32)
+                                    )
+                                  ),
+                                  child: Column(
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.only(top: 16),
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.center,
+                                          children: [
+                                            Container(
+                                              width: MediaQuery.of(context).size.width / 2,
+                                              child: Column(
+                                                children: [
+                                                  Text(
+                                                    "1.152",
+                                                    style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      color: AppThemeData.to.colors.dark,
+                                                    ),
+                                                  ),
+                                                  Container(height: 8),
+                                                  Text(
+                                                    "Followers",
+                                                    style: TextStyle(
+                                                      color: AppThemeData.to.colors.dark,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Container(
+                                              width: MediaQuery.of(context).size.width / 2,
+                                              child: Column(
+                                                children: [
+                                                  Text(
+                                                    "285",
+                                                    style: TextStyle(
+                                                      fontWeight: FontWeight.bold,                            
+                                                      color: AppThemeData.to.colors.dark,
+                                                    ),
+                                                  ),
+                                                  Container(height: 8),
+                                                  Text(
+                                                    "Following",
+                                                    style: TextStyle(
+                                                      color: AppThemeData.to.colors.dark,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+
+                                      Container(height: 32),
+
+                                      Text(
+                                        "Juliete Makarov"
+                                      ),
+
+                                      Container(height: 8),
+
+                                      Row(
+                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                                          Text(
+                                            "22 y.o | Pro Model",
+                                            style: TextStyle(
+                                              color: AppThemeData.to.colors.dark,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+
+                                      Container(height: 8),
+
+                                      Container(
+                                        width: MediaQuery.of(context).size.width * 0.75,
+                                        margin: EdgeInsets.only(bottom: 12),
+                                        padding: const EdgeInsets.symmetric(vertical: 12),
+                                        decoration: BoxDecoration(
+                                          color: AppThemeData.to.colors.primary,
+                                          borderRadius: BorderRadius.circular(24)
+                                        ),
+                                        alignment: Alignment.center,
+                                        child: Text(
+                                          "Follow",
+                                          style: TextStyle(
+                                            color: AppThemeData.to.colors.dark,
+                                            fontWeight: FontWeight.bold
+                                          ),
+                                        ),
+                                      ),
+
+                                      // Abas
+                                      Container(
+                                        color: AppThemeData.to.colors.primary,
+                                        child: Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Container(
+                                              width: MediaQuery.of(context).size.width / 2 - 8,
+                                              height: 48,
+                                              alignment: Alignment.center,
+                                              decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                boxShadow: [
+                                                  BoxShadow(
+                                                    blurRadius: 4.0,
+                                                    color: Colors.black.withOpacity(0.24)
+
+                                                  )
+                                                ],
+                                                borderRadius: BorderRadius.only(
+                                                  topRight: Radius.circular(32)
+                                                )
+                                              ),
+                                              child:
+                                                Text(
+                                                  "Photos",
+                                                  style: TextStyle(
+                                                    fontWeight: FontWeight.bold,
+                                                    color: AppThemeData.to.colors.dark
+                                                  ),
+                                                ),
+                                            ),
+
+                                            Container(
+                                              color: Colors.white,
+                                              child: Container(
+                                                width: MediaQuery.of(context).size.width / 2 - 8,
+                                                height: 48,
+                                                alignment: Alignment.center,
+                                                decoration: BoxDecoration(
+                                                  color: AppThemeData.to.colors.primary,
+                                                  borderRadius: BorderRadius.only(
+                                                    topRight: Radius.circular(32)
+                                                  ),
+                                                ),
+                                                child: 
+                                                  Text(
+                                                    "Videos",
+                                                    style: TextStyle(
+                                                      fontWeight: FontWeight.bold,
+                                                      color: AppThemeData.to.colors.dark
+                                                    ),
+                                                  ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+
+                                      Container(
+                                        color: Colors.white,
+                                        height: 20,
+                                        width: MediaQuery.of(context).size.width,
+                                      ),
+
+                                      Stack(
+                                        children: [
+                                          Container(
+                                            width: MediaQuery.of(context).size.width,
+                                            height: 600,
+                                            child: 
+                                              GridView.count(
+                                                crossAxisCount: 3,
+                                                mainAxisSpacing: 8,
+                                                crossAxisSpacing: 8,
+                                                
+                                                children: [
+                                                  _imagenContainer(),
+                                                  _imagenContainer(),
+                                                  _imagenContainer(),
+                                                  _imagenContainer(),
+                                                  _imagenContainer(),
+                                                  _imagenContainer(),
+                                                  _imagenContainer(),
+                                                  _imagenContainer(),
+                                                  _imagenContainer(),
+                                                  _imagenContainer(),
+                                                  _imagenContainer(),
+                                                  _imagenContainer(),
+                                                  _imagenContainer(),
+                                                ],
+                                              )
+                                          ),
+                                        ],
+                                      )
+
+
+                                      
+                                    ],
+                                  ),
+                                )
+                            ),
+
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  decoration: BoxDecoration(
+                                    color: AppThemeData.to.colors.dark,
+                                    borderRadius: BorderRadius.circular(96)
+                                  ),
+                                  width: 96,
+                                  height: 96,
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      
+
+
+                    ],
                   ),
-
-                  
-
-
-                ],
+                ),
               ),
-            ),
+              Positioned(
+                bottom: 0, 
+                child: _bottomNavigation()
+              ),
+            ],
           ),
         ),
         
