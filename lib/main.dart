@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:social_profile/theme/theme.dart';
@@ -37,11 +36,28 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     double tamanhoItemMenu = MediaQuery.of(context).size.width / 5.0;
+    String urlProfilePhoto = "https://images.unsplash.com/photo-1489278353717-f64c6ee8a4d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80";
 
+    List<String> listaImagens = [
+      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=933&q=80",
+      "https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1393&q=80",
+      "https://images.unsplash.com/photo-1552733407-5d5c46c3bb3b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=714&q=80",
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80",
+      "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=562&q=80",
+      "https://images.unsplash.com/photo-1500835556837-99ac94a94552?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80",
+      "https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=704&q=80",
+      "https://images.unsplash.com/photo-1517760444937-f6397edcbbcd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80",
+      "https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+      "https://images.unsplash.com/photo-1533105079780-92b9be482077?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80",
+      "https://images.unsplash.com/photo-1504609773096-104ff2c73ba4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1050&q=80",
+      "https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80",
+      "https://images.unsplash.com/photo-1498307833015-e7b400441eb8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80",
+      "https://images.unsplash.com/photo-1497262693247-aa258f96c4f5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=624&q=80",
+    ];
 
-    _imagenContainer() {
+    _imagenContainer(String url) {
       double tamanho = MediaQuery.of(context).size.width / 2;
-      String urlImage = "https://images.unsplash.com/photo-1620720192386-7452fdd36a29?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80";
+      String urlImage = url;
       return Container(
         width: tamanho,
         height: tamanho,
@@ -118,7 +134,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                       height: 12,
                                       width: 12,
                                       decoration: BoxDecoration(
-                                        color: Colors.red,
+                                        color: AppThemeData.to.colors.dark,
                                         borderRadius: BorderRadius.circular(8),
                                         border: Border.all(
                                           width: 2,
@@ -199,7 +215,17 @@ class _MyHomePageState extends State<MyHomePage> {
                             Container(
                               decoration: BoxDecoration(
                                 color: AppThemeData.to.colors.dark,
-                                borderRadius: BorderRadius.circular(32)
+                                borderRadius: BorderRadius.circular(32),
+                                border: Border.all(
+                                  width: 2,
+                                  color: AppThemeData.to.colors.dark
+                                ),
+                                image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: NetworkImage(
+                                    urlProfilePhoto
+                                  )
+                                )
                               ),
                               width: 32,
                               height: 32,
@@ -237,9 +263,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                   height: 2000,
                                   decoration: BoxDecoration(
                                     color: Colors.white,
-                                    image: DecorationImage(
-                                      image: NetworkImage("https://images.unsplash.com/photo-1489278353717-f64c6ee8a4d2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80")
-                                    ),
                                     borderRadius: BorderRadius.only(
                                       topLeft: Radius.circular(32),
                                       topRight: Radius.circular(32)
@@ -408,34 +431,17 @@ class _MyHomePageState extends State<MyHomePage> {
                                           Container(
                                             width: MediaQuery.of(context).size.width,
                                             height: 600,
+                                            padding: EdgeInsets.only(bottom: 96),
                                             child: 
                                               GridView.count(
                                                 crossAxisCount: 3,
                                                 mainAxisSpacing: 8,
                                                 crossAxisSpacing: 8,
-                                                
-                                                children: [
-                                                  _imagenContainer(),
-                                                  _imagenContainer(),
-                                                  _imagenContainer(),
-                                                  _imagenContainer(),
-                                                  _imagenContainer(),
-                                                  _imagenContainer(),
-                                                  _imagenContainer(),
-                                                  _imagenContainer(),
-                                                  _imagenContainer(),
-                                                  _imagenContainer(),
-                                                  _imagenContainer(),
-                                                  _imagenContainer(),
-                                                  _imagenContainer(),
-                                                ],
+                                                children: List.generate(listaImagens.length, (index) => _imagenContainer(listaImagens[index]))
                                               )
                                           ),
                                         ],
                                       )
-
-
-                                      
                                     ],
                                   ),
                                 )
@@ -447,7 +453,15 @@ class _MyHomePageState extends State<MyHomePage> {
                                 Container(
                                   decoration: BoxDecoration(
                                     color: AppThemeData.to.colors.dark,
-                                    borderRadius: BorderRadius.circular(96)
+                                    borderRadius: BorderRadius.circular(96),
+                                    border: Border.all(
+                                      width: 2,
+                                      color: AppThemeData.to.colors.dark
+                                    ),
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage(urlProfilePhoto)
+                                    )
                                   ),
                                   width: 96,
                                   height: 96,
@@ -457,10 +471,6 @@ class _MyHomePageState extends State<MyHomePage> {
                           ],
                         ),
                       ),
-
-                      
-
-
                     ],
                   ),
                 ),
