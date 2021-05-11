@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:social_profile/theme/theme.dart';
@@ -58,78 +59,122 @@ class _MyHomePageState extends State<MyHomePage> {
 
     _bottomNavigation() {
       return Container(
-        width: MediaQuery.of(context).size.width,
-        height: 56,
-        decoration: BoxDecoration(
-          color: AppThemeData.to.colors.primary,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(32),
-            topRight: Radius.circular(32)
-          )
-        ),
-        child: 
-          Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  width: tamanhoItemMenu,
-                  child: Icon(
-                    Icons.home_rounded,
-                    color: AppThemeData.to.colors.dark,
-                  ),
+        height: 112,
+        alignment: Alignment.bottomCenter,
+        child: Stack(
+          children: [
+            Positioned(
+              bottom: 0,
+              child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 56,
+                decoration: BoxDecoration(
+                  color: AppThemeData.to.colors.primary,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(32),
+                    topRight: Radius.circular(32)
+                  )
                 ),
-                Container(
-                  width: tamanhoItemMenu,
-                  child: Icon(
-                    Icons.search_rounded,
-                    color: AppThemeData.to.colors.dark,
-                  ),
-                ),
-
-                Container(
-                  width: tamanhoItemMenu,
-                ),
-
-                Container(
-                  width: tamanhoItemMenu,
-                  child: Stack(
+                child: 
+                  Stack(
                     children: [
-                      Center(
-                        child: Icon(
-                          Icons.notifications_rounded,
-                          color: AppThemeData.to.colors.dark,
-                        ),
-                      ),
-                      Positioned(
-                        top: 12,
-                        left: tamanhoItemMenu / 2,
-                        child: Container(
-                          height: 12,
-                          width: 12,
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(8),
-                            border: Border.all(
-                              width: 2,
-                              color: AppThemeData.to.colors.primary
-                            )
-                          ),
+                      Container(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              width: tamanhoItemMenu,
+                              child: Icon(
+                                Icons.home_rounded,
+                                color: AppThemeData.to.colors.dark,
+                              ),
+                            ),
+                            Container(
+                              width: tamanhoItemMenu,
+                              child: Icon(
+                                Icons.search_rounded,
+                                color: AppThemeData.to.colors.dark,
+                              ),
+                            ),
+
+                            Container(
+                              width: tamanhoItemMenu,
+                            ),
+
+                            Container(
+                              width: tamanhoItemMenu,
+                              child: Stack(
+                                children: [
+                                  Center(
+                                    child: Icon(
+                                      Icons.notifications_rounded,
+                                      color: AppThemeData.to.colors.dark,
+                                    ),
+                                  ),
+                                  Positioned(
+                                    top: 12,
+                                    left: tamanhoItemMenu / 2,
+                                    child: Container(
+                                      height: 12,
+                                      width: 12,
+                                      decoration: BoxDecoration(
+                                        color: Colors.red,
+                                        borderRadius: BorderRadius.circular(8),
+                                        border: Border.all(
+                                          width: 2,
+                                          color: AppThemeData.to.colors.primary
+                                        )
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              width: tamanhoItemMenu,
+                              child: Icon(
+                                Icons.account_circle_outlined,
+                                color: AppThemeData.to.colors.dark,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
-                  ),
-                ),
-                Container(
-                  width: tamanhoItemMenu,
-                  child: Icon(
-                    Icons.account_circle_outlined,
-                    color: AppThemeData.to.colors.dark,
-                  ),
-                ),
-              ],
+                  )
+              ),
             ),
-          )
+
+            Container(
+              alignment: Alignment.center,
+              width: MediaQuery.of(context).size.width,
+              child: 
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Container(
+                      width: 56,
+                      height: 56,
+                      child: 
+                        Container(
+                          width: 32,
+                          height: 32,
+                          decoration: BoxDecoration(
+                            color: AppThemeData.to.colors.dark,
+                            borderRadius: BorderRadius.circular(64)
+                          ),
+                          child: Icon(
+                            Icons.add_rounded,
+                            size: 32,
+                            color: Colors.white,
+                          ),
+                        ),
+                    ),
+                  ],
+                )
+            ),
+          ],
+        ),
       );
     }
 
