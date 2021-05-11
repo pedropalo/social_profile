@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:social_profile/detailPage.dart';
 import 'package:social_profile/theme/theme.dart';
 
 void main() {
@@ -32,6 +33,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool following = false;
   
   @override
   Widget build(BuildContext context) {
@@ -344,20 +346,28 @@ class _MyHomePageState extends State<MyHomePage> {
 
                                       Container(height: 8),
 
-                                      Container(
-                                        width: MediaQuery.of(context).size.width * 0.75,
-                                        margin: EdgeInsets.only(bottom: 12),
-                                        padding: const EdgeInsets.symmetric(vertical: 12),
-                                        decoration: BoxDecoration(
-                                          color: AppThemeData.to.colors.primary,
-                                          borderRadius: BorderRadius.circular(24)
-                                        ),
-                                        alignment: Alignment.center,
-                                        child: Text(
-                                          "Follow",
-                                          style: TextStyle(
-                                            color: AppThemeData.to.colors.dark,
-                                            fontWeight: FontWeight.bold
+                                      GestureDetector(
+                                        onTap: () {
+                                          following = !following;
+                                          setState(() {
+                                            
+                                          });
+                                        },
+                                        child: Container(
+                                          width: MediaQuery.of(context).size.width * 0.75,
+                                          margin: EdgeInsets.only(bottom: 12),
+                                          padding: const EdgeInsets.symmetric(vertical: 12),
+                                          decoration: BoxDecoration(
+                                            color: AppThemeData.to.colors.primary,
+                                            borderRadius: BorderRadius.circular(24)
+                                          ),
+                                          alignment: Alignment.center,
+                                          child: Text(
+                                            following ? "Following" : "Follow",
+                                            style: TextStyle(
+                                              color: AppThemeData.to.colors.dark,
+                                              fontWeight: FontWeight.bold
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -438,7 +448,29 @@ class _MyHomePageState extends State<MyHomePage> {
                                                 crossAxisCount: 3,
                                                 mainAxisSpacing: 8,
                                                 crossAxisSpacing: 8,
-                                                children: List.generate(listaImagens.length, (index) => _imagenContainer(listaImagens[index]))
+                                                children: List.generate(listaImagens.length, (index) => 
+                                                  GestureDetector(
+                                                    onTap: () async { 
+                                                      var _data = await Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage(
+                                                        tagName: 'quadrado-$index',
+                                                        url: listaImagens[index],
+                                                      )));
+
+                                                      if(_data) {
+                                                        SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+                                                          statusBarColor: AppThemeData.to.colors.primary,
+                                                          statusBarBrightness: Brightness.light,
+                                                          statusBarIconBrightness: Brightness.dark
+                                                        ));
+
+                                                      }
+                                                    },
+                                                    child: Hero(
+                                                      tag: 'quadrado-$index',
+                                                      child: _imagenContainer(listaImagens[index])
+                                                    )
+                                                  )
+                                                )
                                               )
                                           ),
                                         ],
